@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+#searchButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #ff6b6b;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#searchButton:hover {
+    background: #ff4c4c;
+}
+
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.cocktail-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.cocktail-card:hover {
+    transform: translateY(-5px);
+}
+
+.cocktail-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.cocktail-info {
+    padding: 20px;
+}
+
+.cocktail-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cocktail-category {
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.instructions-btn {
+    background: #4ecdc4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.instructions-btn:hover {
+    background: #2a9d8f;
+}
+
+.instructions-card {
+    display: none;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.instructions-title {
+    color: #333;
+    margin-bottom: 15px;
+    padding-right: 30px;
+}
+
+.instructions-text {
+    color: #555;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.ingredients-list {
+    margin-top: 15px;
+    padding-left: 20px;
+    color: #555;
+}
+
+.ingredients-list li {
+    margin-bottom: 5px;
+}
+
+.no-results {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 30px;
+    grid-column: 1 / -1;
+}
+
+.loading {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 30px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid white;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    color: #ff6b6b;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .results-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    #searchInput {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    
+    #searchButton {
+        padding: 8px 15px;
+    }
+}

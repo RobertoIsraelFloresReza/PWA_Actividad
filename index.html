@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Cócteles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍹 Buscador de Cócteles</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Escribe el nombre de un cóctel...">
+                <button id="searchButton">Buscar</button>
+            </div>
+        </header>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Buscando cócteles...</p>
+        </div>
+        
+        <div class="results-container" id="resultsContainer">
+            <!-- Los resultados se insertarán aquí con JavaScript -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
